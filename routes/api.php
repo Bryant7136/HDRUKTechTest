@@ -3,7 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
-
 use function Pest\Laravel\json;
 
 Route::get('/user', function (Request $request) {
