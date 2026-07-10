@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use function Pest\Laravel\json;
 
 Route::get('/user', function (Request $request) {
-    return $request->user();
+    return $request->user(); 
 })->middleware('auth:sanctum');
 
 Route::get('/list', function(Request $request){
@@ -38,7 +38,7 @@ Route::put("/update_event", function(Request $request)
 {
     $data = json_decode(file_get_contents('php://input'),true);
     try{
-    $updated = DB::table('events')->where('event_name',$data['event_name'])->update(['current_attendees' => $data['current_attendees']]);
+    $updated = DB::table('events')->where('event_name',$data['event_name'])->update(['current_attendees' => $data['current_attendees'],'event_date' => $data['event_date']]);
     }
     catch( PDOException $e )
     {
